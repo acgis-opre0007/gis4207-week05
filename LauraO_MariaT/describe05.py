@@ -10,17 +10,21 @@ def main():
         
     file = sys.argv[1]
     
-    import arcpy
+    import arcpy.da
+
+    if not arcpy.Exists(file):
+        print("The feature class " + file + " does not exist.")
+        sys.exit()
         
     feature_class(file)
     
     
 def feature_class(file):
     
-    dsc = arcpy.Describe(file)
-    print(f'{"Basename":13}{dsc.BaseName}')
-    print(f'{"Catalog":13}{dsc.catalogPath}')
-    print(f'{"Datatype":13}{dsc.dataType}')
+    dic_dsc = arcpy.da.Describe(file)
+    print(dic_dsc['baseName'])
+    print(dic_dsc['catalogPath'])
+    print(dic_dsc['dataType'])
 
 
 if __name__ == "__main__":
