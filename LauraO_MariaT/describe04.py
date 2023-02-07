@@ -1,22 +1,28 @@
-import arcpy
 import sys
 
 def main():
+    global arcpy, env
     
-    if len(sys.argv) !=1:
+    
+    if len(sys.argv) !=2:
         print ("Usage:describe03.py <FeatureClassName>")
-        sys.exist()
-    else:
-        print("Error turn back")
+        sys.exit()
+        
+    file = sys.argv[1]
+    
+    import arcpy
 
-file = r'..\..\..\..\data\Canada\province.shp'
-desc_dic= arcpy.da.Describe(file)
-
-print(type(desc_dic))
-print(desc_dic.keys())
-print(desc_dic['baseName'])
-print(desc_dic['catalogPath'])
-print(desc_dic['dataType'])
+    if not arcpy.Exists(file):
+        print("The feature class " + file + " does not exist.")
+        sys.exit()
+        
+    feature_class(file)
+    
+    
+def feature_class(file):
+    
+    dsc = arcpy.Describe(file)
+    print (dsc.name)
 
 
 if __name__ == "__main__":
