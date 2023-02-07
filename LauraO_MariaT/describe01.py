@@ -4,6 +4,7 @@ import os
 file = r'..\..\..\..\data\Canada\province.shp'
 desc = arcpy.Describe(file)
 
-print("Basename" : {desc.name})
-print("Catalog" :{desc.catalogPath})
-print("Datatype": {desc.dataType}) 
+print(f'Basename:{desc.BaseName}')
+print(f'Catalog:{desc.catalogPath}')
+print(f'Datatype:{desc.dataType}') 
+ 
