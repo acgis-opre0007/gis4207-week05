@@ -13,7 +13,7 @@ def main():
     import arcpy.da
 
     if not arcpy.Exists(file):
-        print("The feature class " + file + " does not exist.")
+        print("The feature class does not exist.")
         sys.exit()
         
     feature_class(file)
