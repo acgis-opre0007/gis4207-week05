@@ -28,7 +28,7 @@ def main():
 
 def get_da_walker(rootFolder, feature_type, out_file):
     feat_class = []
-    walk = arcpy.da.Walk(rootFolder, datatype='FeatureClass', type= feature_type)
+    walk = arcpy.da.Walk(rootFolder, datatype='FeatureClass', type="feature_type")
 
     for dirpath, dirnames, filenames in walk:
         for filename in filenames:
