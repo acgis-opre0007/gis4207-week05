@@ -5,7 +5,7 @@ def main():
     global arcpy 
     
     if len(sys.argv) !=4:
-        print ("Usage:List06.py <root_folder> <Point|Polyline|polygon> <out_file_name>")
+        print ("Usage:List08.py <root_folder> <Point|Polyline|polygon> <out_file_name>")
         sys.exit()
     
     rootFolder = sys.argv[1]
@@ -24,6 +24,8 @@ def main():
     
     get_workspace_folder(rootFolder, feature_type, out_file)     
 
+#TO DO: not working at the moment
+
 def get_workspace_folder(rootFolder, feature_type, out_file):
     for root, dirs, files in arcpy.da.walk(rootFolder, datatype='FeatureClass', type=['Point', 'Polyline', 'Polygon']):
         arcpy.env.workspace = root
@@ -36,7 +38,7 @@ def get_workspace_folder(rootFolder, feature_type, out_file):
                  print (os.path.abspath(workspace),fc)
                  
         with open(out_file, "w") as out_file:
-            out_file.write(f'{feature_type} feature classes in and below {rootFolder}')
+            out_file.writer(f'{feature_type} feature classes in and below {rootFolder}')
             for fc in fc_list:
                 out_file.write(fc)
       

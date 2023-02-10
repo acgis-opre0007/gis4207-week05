@@ -5,7 +5,7 @@ def main():
     global arcpy 
     
     if len(sys.argv) !=2:
-        print ("Usage:List06.py <root_folder>")
+        print ("Usage:List07.py <root_folder>")
         sys.exit()
     
     rootFolder = sys.argv[1]
