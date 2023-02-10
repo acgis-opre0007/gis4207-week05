@@ -1,14 +1,12 @@
 import sys
 
 def main():
-    global arcpy
     
     if len(sys.argv) !=2:
         print ("Usage:List02.py <FeatureClassName>")
         sys.exit()
     
- #TO DO LIST: 
-    file = sys.argv[2]
+    file = sys.argv[1]
     
     import arcpy
     from arcpy import env
